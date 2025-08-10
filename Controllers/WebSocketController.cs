@@ -2,11 +2,82 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.WebSockets;
 using System.Text;
 
+[Route("ws")]
 public class WebSocketController : ControllerBase
 {
-    [Route("/ws")]
-    public string Get()
+    private readonly RoomManager _roomManager;
+
+    public WebSocketController(RoomManager roomManager)
     {
-        return "Hello World";
+        _roomManager = roomManager;
+    }
+
+    [Route("join")]
+    public async Task Get([FromQuery] string gameId)
+    {
+        Console.WriteLine(gameId);
+        if (!_roomManager.GameExists(gameId))
+        {
+            HttpContext.Response.StatusCode = StatusCodes.Status404NotFound;
+            return;
+        }
+        if (HttpContext.WebSockets.IsWebSocketRequest)
+        {
+            using var webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
+
+            // Try to add the client to the room.
+            var added = _roomManager.AddClient(gameId, webSocket);
+            if (!added)
+            {
+                // Room is full, gracefully close the connection.
+                await webSocket.CloseAsync(
+                    WebSocketCloseStatus.PolicyViolation,
+                    "Game room is full.",
+                    CancellationToken.None);
+                return;
+            }
+
+            await Echo(webSocket);
+        }
+        else
+        {
+            HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+        }
+    }
+
+    private async Task Echo(WebSocket webSocket)
+    {
+        var buffer = new byte[1024 * 4];
+        var receiveResult = await webSocket.ReceiveAsync(
+            new ArraySegment<byte>(buffer), CancellationToken.None);
+
+        // Keep listening as long as the client wants to talk
+        while (!receiveResult.CloseStatus.HasValue)
+        {
+            // --- This is where you process incoming messages ---
+            // For now, we just echo the message back to the sender
+            var message = Encoding.UTF8.GetString(buffer, 0, receiveResult.Count);
+            Console.WriteLine($"Received from client: {message}");
+
+            var serverMsg = Encoding.UTF8.GetBytes($"Server got your message: {message}");
+            await webSocket.SendAsync(
+                new ArraySegment<byte>(serverMsg, 0, serverMsg.Length),
+                receiveResult.MessageType,
+                receiveResult.EndOfMessage,
+                CancellationToken.None);
+            // --- End of message processing ---
+
+            // Continue listening for the next message
+            receiveResult = await webSocket.ReceiveAsync(
+                new ArraySegment<byte>(buffer), CancellationToken.None);
+        }
+
+        // The client wants to close the connection, so we acknowledge it.
+        await webSocket.CloseAsync(
+            receiveResult.CloseStatus.Value,
+            receiveResult.CloseStatusDescription,
+            CancellationToken.None);
+        
+        // TODO: Here you need to remove the webSocket from your RoomManager
     }
 }
