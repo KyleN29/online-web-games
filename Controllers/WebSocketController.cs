@@ -37,7 +37,7 @@ public class WebSocketController : ControllerBase
                 return;
             }
 
-            await Echo(webSocket);
+            await Echo(webSocket, gameId);
         }
         else
         {
@@ -45,7 +45,7 @@ public class WebSocketController : ControllerBase
         }
     }
 
-    private async Task Echo(WebSocket webSocket)
+    private async Task Echo(WebSocket webSocket, string gameId)
     {
         var buffer = new byte[1024 * 4];
         var receiveResult = await webSocket.ReceiveAsync(
@@ -77,6 +77,8 @@ public class WebSocketController : ControllerBase
             receiveResult.CloseStatus.Value,
             receiveResult.CloseStatusDescription,
             CancellationToken.None);
+
+        _roomManager.RemoveClient(gameId, webSocket);
         
         // TODO: Here you need to remove the webSocket from your RoomManager
     }
