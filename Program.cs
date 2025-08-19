@@ -20,15 +20,18 @@ var app = builder.Build();
 
 
 app.UseWebSockets();
-app.MapControllers();
+app.UseCors("AllowReactApp");
+
+
 
 // app.Map("/ws", () =>
 // {
 //     if ()
 // });
 
-app.UseCors("AllowReactApp");
+
 app.UseDefaultFiles();
 app.UseStaticFiles();
+app.MapControllers();
 app.MapFallbackToFile("index.html");
 app.Run();
