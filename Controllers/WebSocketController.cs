@@ -12,7 +12,7 @@ public class WebSocketController : ControllerBase
         _roomManager = roomManager;
     }
 
-    [Route("join")]
+    [HttpGet("join")]
     public async Task Get([FromQuery] string gameId)
     {
         Console.WriteLine(gameId);
