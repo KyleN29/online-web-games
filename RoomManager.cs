@@ -1,10 +1,11 @@
 
 using System.Collections.Concurrent;
 using System.Net.WebSockets;
+using System.Threading.Tasks;
 
 public class RoomManager
 {
-    private ConcurrentDictionary<string, ConcurrentBag<WebSocket>> _clientsByGame = new();
+    private ConcurrentDictionary<string, Room> _gameRooms = new(); // <gameId, Room>
 
     /// <summary>
     /// 
@@ -14,23 +15,9 @@ public class RoomManager
     /// <returns>True if the client was successfully added, false otherwise</returns>
     public bool AddClient(string gameId, WebSocket socket)
     {
-        if (_clientsByGame.TryGetValue(gameId, out var room))
+        if (_gameRooms.TryGetValue(gameId, out var room))
         {
-            // Only allow 2 players in a game
-            if (room.Count >= 2)
-            {
-                Console.WriteLine("TOO MANY!!!");
-                return false;
-            }
-
-            room.Add(socket);
-
-            // If room now has 2 clients, notify both
-            if (room.Count == 2)
-            {
-                Console.WriteLine("Perfect 😎");
-                _ = NotifyRoomReady(room);
-            }
+            room.AddClient(socket);
 
             return true;
         }
@@ -39,26 +26,18 @@ public class RoomManager
 
     public void RemoveClient(string gameId, WebSocket socket)
     {
-        if (_clientsByGame.TryGetValue(gameId, out var room))
+        if (_gameRooms.TryGetValue(gameId, out var room))
         {
-            var newRoom = new ConcurrentBag<WebSocket>();
-            foreach (var s in room)
-            {
-                if (s != socket)
-                    newRoom.Add(s);
-            }
-
-            _clientsByGame[gameId] = newRoom;
-            Console.WriteLine("Removed from room");
+            room.RemoveClient(socket);
         }
     }
 
 
     public int GetClientNum(string gameId)
     {
-        if (_clientsByGame.TryGetValue(gameId, out var room))
+        if (_gameRooms.TryGetValue(gameId, out var room))
         {
-            return room.Count;
+            return room.ClientCount();
         }
         return -1;
     }
@@ -66,27 +45,25 @@ public class RoomManager
     public string GenerateGame()
     {
         var gameId = Guid.NewGuid().ToString()[..8];
-        _clientsByGame[gameId] = new ConcurrentBag<WebSocket>();
+        _gameRooms[gameId] = new Room(gameId, 12);
         return gameId;
     }
 
     public bool GameExists(string gameId)
     {
-        return _clientsByGame.TryGetValue(gameId, out var _);
+        return _gameRooms.TryGetValue(gameId, out var _);
     }
 
-    private async Task NotifyRoomReady(ConcurrentBag<WebSocket> room)
+    public async Task Listen(string gameId, WebSocket socket, int gameNum)
     {
-        var message = new { type = "room_ready", players = room.Count };
-
-        foreach (var socket in room)
+        if (_gameRooms.TryGetValue(gameId, out var room))
         {
-            if (socket.State == WebSocketState.Open)
-            {
-                await socket.SendJsonAsync(message);
-            }
+            await room.ReceiveDirection(socket, gameNum);
+
         }
     }
+
+
 
 
 }

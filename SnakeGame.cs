@@ -6,8 +6,8 @@ public class SnakeGame
 {
     public class Point
     {
-        public int X { get; }
-        public int Y { get; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
         public Point(int x, int y)
         {
@@ -25,17 +25,22 @@ public class SnakeGame
     }
 
     public string[][] grid;
-    public Point[] snakeBody;
+    public List<Point> snakeBody;
     public Point currentDirection;
     public int gridSize;
     public bool gameOver;
+
+    public Point lastDirection;
     private Random rand = new Random();
+    private Room _room;
+    private int gameNum;
 
-    private WebSocket socket;
+    private Point tailPreviousPoint = null;
 
-    public SnakeGame(int gridSize, WebSocket socket)
+    public SnakeGame(int gridSize, int gameNum, Room room)
     {
-        this.socket = socket;
+        this.gameNum = gameNum;
+        this._room = room;
         grid = new string[gridSize][];
         for (int i = 0; i < gridSize; i++)
         {
@@ -57,9 +62,10 @@ public class SnakeGame
         };
         Point startDirection = directions[rand.Next(0, directions.Length)];
         this.currentDirection = startDirection;
+        this.lastDirection = currentDirection;
         Point startPoint = new Point(startX, startY);
 
-        this.snakeBody = new Point[] { startPoint, startPoint.Add(startDirection.Inverse()), startPoint.Add(startDirection.Inverse().Multiply(2)) };
+        this.snakeBody = new List<Point>() { startPoint, startPoint.Add(startDirection.Inverse()), startPoint.Add(startDirection.Inverse().Multiply(2)) };
         this.SpawnFruit();
         this.gameOver = false;
 
@@ -87,7 +93,7 @@ public class SnakeGame
     public bool CheckCollideWithBody(Point headPoint)
     {
         HashSet<string> invalidPoints = new HashSet<string>();
-        for (int i = 1; i < this.snakeBody.Length; i++)
+        for (int i = 1; i < this.snakeBody.Count; i++)
         {
             invalidPoints.Add($"{this.snakeBody[i].X}-{this.snakeBody[i].Y}");
         }
@@ -122,7 +128,7 @@ public class SnakeGame
         }
 
         Point lastModifiedPoint = null;
-        for (int i = 1; i < this.snakeBody.Length; i++)
+        for (int i = 1; i < this.snakeBody.Count; i++)
         {
             if (lastModifiedPoint != null)
             {
@@ -141,17 +147,29 @@ public class SnakeGame
 
         if (this.AttemptToEatFruit() && lastModifiedPoint != null)
         {
-            this.snakeBody.Append(lastModifiedPoint);
+            _room.IncreaseOpponentSnakeLength(this.gameNum ^ 1);
             this.SpawnFruit();
         }
+        tailPreviousPoint = lastModifiedPoint;
     }
 
-    public Point[] GetPossibleFruitSpawns()
+    public void IncreaseLength()
     {
-        Point[] validSpawns = new Point[] { };
+        if (tailPreviousPoint == null)
+        {
+            Console.WriteLine("DIDNT ADD FRUIT. NEED FIX!!!!");
+            return;
+        }
+        this.snakeBody.Add(this.snakeBody[this.snakeBody.Count-1]);
+    }
+
+    public List<Point> GetPossibleFruitSpawns()
+    {
+        Console.WriteLine("Called!");
+        List<Point> validSpawns = new List<Point>();
         HashSet<string> invalidSpawnSet = new HashSet<string>();
 
-        for (int i = 0; i < this.snakeBody.Length; i++)
+        for (int i = 0; i < this.snakeBody.Count; i++)
         {
             Point point = this.snakeBody[i];
             invalidSpawnSet.Add($"{point.X}-{point.Y}");
@@ -163,7 +181,7 @@ public class SnakeGame
             {
                 if (!invalidSpawnSet.Contains($"{x}-{y}") && this.grid[x][y] == "")
                 {
-                    validSpawns.Append(new Point(x, y));
+                    validSpawns.Add(new Point(x, y));
                 }
             }
         }
@@ -172,9 +190,10 @@ public class SnakeGame
 
     public void SpawnFruit()
     {
-        Point[] validSpawnPoints = this.GetPossibleFruitSpawns();
-
-        Point randomSpawnPoint = validSpawnPoints[rand.Next(0, validSpawnPoints.Length)];
+        List<Point> validSpawnPoints = this.GetPossibleFruitSpawns();
+        Console.WriteLine(validSpawnPoints.Count - 1);
+        // ^ valid spawn points is giving no valid points
+        Point randomSpawnPoint = validSpawnPoints[rand.Next(0, validSpawnPoints.Count-1)];
 
         this.grid[randomSpawnPoint.X][randomSpawnPoint.Y] = "F";
     }
@@ -194,6 +213,7 @@ public class SnakeGame
     public void Step()
     {
         this.MoveBody(this.currentDirection);
+        this.lastDirection = this.currentDirection;
     }
 
     public HashSet<string> GetPossibleDirectionKeys()

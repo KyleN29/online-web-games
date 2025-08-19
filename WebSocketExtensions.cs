@@ -4,9 +4,9 @@ using System.Text.Json;
 
 public static class WebSocketExtensions
 {
-    public static async Task SendJsonAsync<T>(
+    public static async Task SendJsonAsync(
         this WebSocket socket,
-        T payload,
+        object payload,
         CancellationToken cancellationToken = default)
     {
         if (socket.State != WebSocketState.Open)
@@ -22,6 +22,9 @@ public static class WebSocketExtensions
             cancellationToken
         );
     }
+
+
+
 
     public static async Task<T?> ReceiveJsonAsync<T>(
         this WebSocket socket,
