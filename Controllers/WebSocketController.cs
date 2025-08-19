@@ -16,7 +16,6 @@ public class WebSocketController : ControllerBase
     public async Task Get([FromQuery] string gameId)
     {
         Console.WriteLine(gameId);
-        Console.WriteLine("WS request met");
         if (!_roomManager.GameExists(gameId))
         {
             HttpContext.Response.StatusCode = StatusCodes.Status404NotFound;
