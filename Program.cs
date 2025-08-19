@@ -2,7 +2,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-// ✅ Add this
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
