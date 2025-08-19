@@ -197,6 +197,11 @@ public class Room
     {
         public bool ready { get; set; }
     }
+    public class PingMessage
+    {
+        public string type { get; set; }
+        public long timestamp { get; set; } // client’s send time (ms since epoch)
+    }
     public async Task HandleClient(WebSocket socket, int playerIndex)
     {
         var buffer = new byte[1024 * 4];
@@ -268,6 +273,21 @@ public class Room
                             curGame.currentDirection = direction;
                         }
 
+                    }
+                    break;
+                case "ping":
+                    var pingMsg = System.Text.Json.JsonSerializer.Deserialize<PingMessage>(rawJson);
+                    if (pingMsg != null)
+                    {
+                        var pong = new
+                        {
+                            type = "pong",
+                            // echo client timestamp back so it can compute RTT
+                            clientTimestamp = pingMsg.timestamp,
+                            serverTimestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+                        };
+
+                        await socket.SendJsonAsync(pong);
                     }
                     break;
             }

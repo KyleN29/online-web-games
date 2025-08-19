@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Lvih2p8Z0SiUuaESKKuGrbKD1U4AuvuDZaPPF8Zgcks=",
+  "Hash": "nUgcW/ajiUi3JPfe+LT79SCFVORWGePkze7IJS1rmjE=",
   "Source": "online-web-games",
   "BasePath": "_content/online-web-games",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-3InIvNC-.js",
+      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-BWNiTrvq.js",
       "SourceId": "online-web-games",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
       "BasePath": "_content/online-web-games",
-      "RelativePath": "assets/index-3InIvNC-.js",
+      "RelativePath": "assets/index-BWNiTrvq.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,7 +31,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\index-3InIvNC-.js"
+      "OriginalItemSpec": "wwwroot\\assets\\index-BWNiTrvq.js"
     },
     {
       "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-CWTYgMfP.css",
