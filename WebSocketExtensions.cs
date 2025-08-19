@@ -34,10 +34,28 @@ public static class WebSocketExtensions
         var result = await socket.ReceiveAsync(
             new ArraySegment<byte>(buffer), cancellationToken);
 
-        if (result.MessageType == WebSocketMessageType.Close)
-            return default;
+
+        // if (socket.State == WebSocketMessageType.Close)
+        //     return default;
 
         string json = Encoding.UTF8.GetString(buffer, 0, result.Count);
+        Console.WriteLine(json);
+        Console.WriteLine(JsonSerializer.Deserialize<T>(json));
         return JsonSerializer.Deserialize<T>(json);
+    }
+
+    public static async Task<string?> ReceiveStringAsync(this WebSocket socket, byte[] buffer, CancellationToken cancellationToken = default)
+    {
+        var result = await socket.ReceiveAsync(new ArraySegment<byte>(buffer), cancellationToken);
+
+        // Client closed connection
+        if (result.MessageType == WebSocketMessageType.Close)
+        {
+            await socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closed by client", cancellationToken);
+            return null;
+        }
+
+        // Convert buffer to string
+        return Encoding.UTF8.GetString(buffer, 0, result.Count);
     }
 }

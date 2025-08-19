@@ -13,11 +13,11 @@ public class RoomManager
     /// <param name="gameId"></param>
     /// <param name="socket"></param>
     /// <returns>True if the client was successfully added, false otherwise</returns>
-    public bool AddClient(string gameId, WebSocket socket)
+    public async Task<bool> AddClient(string gameId, WebSocket socket)
     {
         if (_gameRooms.TryGetValue(gameId, out var room))
         {
-            room.AddClient(socket);
+            await room.AddClient(socket);
 
             return true;
         }
@@ -54,11 +54,11 @@ public class RoomManager
         return _gameRooms.TryGetValue(gameId, out var _);
     }
 
-    public async Task Listen(string gameId, WebSocket socket, int gameNum)
+    public async Task Listen(string gameId, WebSocket socket)
     {
         if (_gameRooms.TryGetValue(gameId, out var room))
         {
-            await room.ReceiveDirection(socket, gameNum);
+            await room.HandleClient(socket, room.ClientCount() - 1);
 
         }
     }

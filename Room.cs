@@ -7,6 +7,7 @@ public class Room
     public string GameId;
     private List<WebSocket> _clients = new();
     private List<SnakeGame> _games = new();
+    private Dictionary<WebSocket, bool> _readyStates = new();
 
     public Room(string gameId, int gridSize)
     {
@@ -31,7 +32,8 @@ public class Room
         if (_clients.Count >= 2) throw new InvalidOperationException("Room full");
 
         _clients.Add(socket);
-        _games.Add(new SnakeGame(12, _clients.Count-1, this));
+        _games.Add(new SnakeGame(12, _clients.Count - 1, this));
+        _readyStates[socket] = false;
 
 
         // Let all clients know how many players are currently connected
@@ -40,14 +42,9 @@ public class Room
         {
             await _clients[i].SendJsonAsync(message);
         }
-        
-        
 
-        if (_clients.Count == 2)
-        {
-            await NotifyRoomReady();
-            _ = StartGameLoop();
-        }
+        // _ = Task.Run(() => WaitForReady(socket));
+
     }
 
     public void RemoveClient(WebSocket socket)
@@ -68,18 +65,61 @@ public class Room
         return _clients.Count;
     }
 
+
+
+    // public async Task WaitForReady(WebSocket socket)
+    // {
+    //     var buffer = new byte[1024 * 4];
+
+    //     while (_clients.Contains(socket) && socket.State == WebSocketState.Open && !_readyStates[socket])
+    //     {
+    //         var msg = await socket.ReceiveJsonAsync<ReadyMessage>(buffer);
+    //         Console.WriteLine("message...");
+    //         if (msg != null && msg.ready)
+    //         {
+    //             Console.WriteLine("Got a ready message :)");
+    //             _readyStates[socket] = true;
+    //             var opponentClientIndex = _clients.IndexOf(socket) ^ 1;
+    //             var opponentSocket = _clients[opponentClientIndex];
+    //             var opponentReady = _readyStates[opponentSocket];
+
+
+    //             var status = new
+    //             {
+    //                 type = "ready_status",
+    //                 isReady = true,
+    //                 opponentReady = opponentReady,
+    //             };
+
+    //             await socket.SendJsonAsync(status);
+
+    //             status = new
+    //             {
+    //                 type = "ready_status",
+    //                 isReady = opponentReady,
+    //                 opponentReady = true,
+    //             };
+
+    //             await opponentSocket.SendJsonAsync(status);
+    //             // notify all clients how many are ready
+
+    //             // if all are ready, start game
+    //             if (_readyStates.Values.All(v => v) && _clients.Count == 2)
+    //             {
+    //                 await NotifyRoomReady();
+    //                 _ = StartGameLoop();
+    //             }
+    //         }
+    //     }
+    // }
+
     public async Task StartGameLoop()
     {
         Console.WriteLine("Game loop starting...");
-        // Initialize loop to listen for inputs
-        for (int i = 0; i < 2; i++)
-        {
-            _ = Task.Run(() => ReceiveDirection(_clients[i], i));
-        }
         while (_clients.Count == 2) // run as long as 2 clients connected
-            {
+        {
             Console.WriteLine("WERE ROLLING");
-                for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 2; i++)
             {
                 _games[i].Step();
                 var state = new
@@ -102,8 +142,8 @@ public class Room
                 }
             }
 
-                await Task.Delay(170); // ~6 ticks per second
-            }
+            await Task.Delay(170); // ~6 ticks per second
+        }
 
         Console.WriteLine("Game loop ended (not enough clients).");
     }
@@ -113,39 +153,129 @@ public class Room
         _games[gameNum].IncreaseLength();
     }
 
-    private class DirectionMessage
+
+
+    // public async Task ReceiveDirection(WebSocket webSocket, int gameNum)
+    // {
+    //     var buffer = new byte[1024 * 4];
+    //     var receiveResult = await webSocket.ReceiveJsonAsync<DirectionMessage>(buffer);
+
+    //     // Keep listening as long as the client wants to talk
+    //     while (!webSocket.CloseStatus.HasValue)
+    //     {
+
+    //         if (receiveResult?.direction != null)
+    //         {
+    //             var direction = receiveResult.direction;
+
+    //             var curGame = _games[gameNum];
+    //             Console.WriteLine("Last Direction: " + curGame.lastDirection.X + "," + curGame.lastDirection.Y + " - Cur Direction: " + curGame.currentDirection.X + "," + curGame.currentDirection.Y);
+
+    //             curGame.SetNewDirection(direction);
+    //             if (direction.X != curGame.lastDirection.X && direction.Y != curGame.lastDirection.Y)
+    //             {
+    //                 curGame.currentDirection = direction;
+    //             }
+
+    //         }
+
+    //         receiveResult = await webSocket.ReceiveJsonAsync<DirectionMessage>(buffer);
+    //     }
+    //     // TODO: Here you need to remove the webSocket from your RoomManager
+    // }
+    public record BaseMessage
+    {
+        public string type { get; init; } = string.Empty;
+    }
+
+    private record DirectionMessage : BaseMessage
     {
         public SnakeGame.Point direction { get; set; }
     }
 
-    public async Task ReceiveDirection(WebSocket webSocket, int gameNum)
+    private record ReadyMessage : BaseMessage
+    {
+        public bool ready { get; set; }
+    }
+    public async Task HandleClient(WebSocket socket, int playerIndex)
     {
         var buffer = new byte[1024 * 4];
-        var receiveResult = await webSocket.ReceiveJsonAsync<DirectionMessage>(buffer);
 
-        // Keep listening as long as the client wants to talk
-        while (!webSocket.CloseStatus.HasValue)
+        while (socket.State == WebSocketState.Open)
         {
+            var rawJson = await socket.ReceiveStringAsync(buffer);
+            Console.WriteLine(rawJson);
+            if (rawJson == null) continue;
 
-            if (receiveResult?.direction != null)
+            var baseMsg = System.Text.Json.JsonSerializer.Deserialize<BaseMessage>(rawJson);
+            Console.WriteLine(baseMsg);
+            if (baseMsg == null) continue;
+
+            switch (baseMsg.type)
             {
-                var direction = receiveResult.direction;
+                case "ready":
+                    var msg = System.Text.Json.JsonSerializer.Deserialize<ReadyMessage>(rawJson);
+                    Console.WriteLine("message...");
+                    if (msg != null && msg.ready)
+                    {
+                        Console.WriteLine("Got a ready message :)");
+                        _readyStates[socket] = true;
+                        var opponentClientIndex = _clients.IndexOf(socket) ^ 1;
+                        var opponentSocket = _clients[opponentClientIndex];
+                        var opponentReady = _readyStates[opponentSocket];
 
-                var curGame = _games[gameNum];
-                Console.WriteLine("Last Direction: " + curGame.lastDirection.X + "," + curGame.lastDirection.Y + " - Cur Direction: " + curGame.currentDirection.X + "," + curGame.currentDirection.Y);
 
-                curGame.SetNewDirection(direction);
-                if (direction.X != curGame.lastDirection.X && direction.Y != curGame.lastDirection.Y)
-                {
-                    curGame.currentDirection = direction;
-                }
+                        var status = new
+                        {
+                            type = "ready_status",
+                            isReady = true,
+                            opponentReady = opponentReady,
+                        };
 
+                        await socket.SendJsonAsync(status);
+
+                        status = new
+                        {
+                            type = "ready_status",
+                            isReady = opponentReady,
+                            opponentReady = true,
+                        };
+
+                        await opponentSocket.SendJsonAsync(status);
+                        // notify all clients how many are ready
+
+                        // if all are ready, start game
+                        if (_readyStates.Values.All(v => v) && _clients.Count == 2)
+                        {
+                            await NotifyRoomReady();
+                            _ = StartGameLoop();
+                        }
+                    }
+                    break;
+
+                case "direction":
+                    var receiveResult = System.Text.Json.JsonSerializer.Deserialize<DirectionMessage>(rawJson);
+                    if (receiveResult?.direction != null)
+                    {
+                        var direction = receiveResult.direction;
+
+                        var curGame = _games[playerIndex];
+                        Console.WriteLine("Last Direction: " + curGame.lastDirection.X + "," + curGame.lastDirection.Y + " - Cur Direction: " + curGame.currentDirection.X + "," + curGame.currentDirection.Y);
+
+                        curGame.SetNewDirection(direction);
+                        if (direction.X != curGame.lastDirection.X && direction.Y != curGame.lastDirection.Y)
+                        {
+                            curGame.currentDirection = direction;
+                        }
+
+                    }
+                    break;
             }
-            
-            receiveResult = await webSocket.ReceiveJsonAsync<DirectionMessage>(buffer);
         }
-        // TODO: Here you need to remove the webSocket from your RoomManager
+
+        Console.WriteLine($"Socket closed for player {playerIndex}");
     }
+
 
 
 }

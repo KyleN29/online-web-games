@@ -26,8 +26,7 @@ public class WebSocketController : ControllerBase
             var webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
 
             // Try to add the client to the room.
-            var added = _roomManager.AddClient(gameId, webSocket);
-            await _roomManager.Listen(gameId, webSocket, _roomManager.GetClientNum(gameId)-1);
+            var added = await _roomManager.AddClient(gameId, webSocket);
             if (!added)
             {
                 Console.WriteLine("Not added to room");
@@ -39,7 +38,7 @@ public class WebSocketController : ControllerBase
                 return;
             }
 
-            // await Echo(webSocket, gameId);
+            await _roomManager.Listen(gameId, webSocket);
         }
         else
         {
