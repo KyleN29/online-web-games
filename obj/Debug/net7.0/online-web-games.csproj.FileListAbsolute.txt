@@ -24,3 +24,4 @@ c:\Users\lightningcreep4\Documents\GitHub\online-web-games\obj\Debug\net7.0\refi
 c:\Users\lightningcreep4\Documents\GitHub\online-web-games\obj\Debug\net7.0\online-web-games.pdb
 C:\Users\lightningcreep4\Documents\GitHub\online-web-games\obj\Debug\net7.0\online-web-games.genruntimeconfig.cache
 C:\Users\lightningcreep4\Documents\GitHub\online-web-games\obj\Debug\net7.0\ref\online-web-games.dll
+c:\Users\lightningcreep4\Documents\GitHub\online-web-games\bin\Debug\net7.0\online-web-games.staticwebassets.runtime.json

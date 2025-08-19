@@ -1,11 +1,105 @@
 {
   "Version": 1,
-  "Hash": "iqG+NqPasqmxNq9UC+7p4Kun3q/95IesESPPuCyiZNI=",
+  "Hash": "W4mWSQl+ge/SdU5Wld1QNSY5OGma23KYd0e/88sE+6A=",
   "Source": "online-web-games",
   "BasePath": "_content/online-web-games",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "online-web-games\\wwwroot",
+      "Source": "online-web-games",
+      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "BasePath": "_content/online-web-games",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-CiVSepEv.js",
+      "SourceId": "online-web-games",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "BasePath": "_content/online-web-games",
+      "RelativePath": "assets/index-CiVSepEv.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\index-CiVSepEv.js"
+    },
+    {
+      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-CWTYgMfP.css",
+      "SourceId": "online-web-games",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "BasePath": "_content/online-web-games",
+      "RelativePath": "assets/index-CWTYgMfP.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\index-CWTYgMfP.css"
+    },
+    {
+      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\index.html",
+      "SourceId": "online-web-games",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "BasePath": "_content/online-web-games",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\snake.png",
+      "SourceId": "online-web-games",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "BasePath": "_content/online-web-games",
+      "RelativePath": "snake.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\snake.png"
+    },
+    {
+      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\vite.svg",
+      "SourceId": "online-web-games",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "BasePath": "_content/online-web-games",
+      "RelativePath": "vite.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\vite.svg"
+    }
+  ]
 }

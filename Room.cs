@@ -132,11 +132,12 @@ public class Room
                 var direction = receiveResult.direction;
                 var curGame = _games[gameNum];
                 Console.WriteLine("Last Direction: "+curGame.lastDirection.X+","+curGame.lastDirection.Y+" - Cur Direction: "+curGame.currentDirection.X+","+curGame.currentDirection.Y);
-                
+
                 // Extra checks to make sure you dont input same direction or 180
                 if (direction.X != curGame.lastDirection.X && direction.Y != curGame.lastDirection.Y)
                 {
                     curGame.SetDirection(direction);
+                    await webSocket.SendJsonAsync(new { type = "direction", direction = new { x = direction.X, y = direction.Y } });
                 }
 
             }

@@ -1,5 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
-
+var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>();
 builder.Services.AddControllers();
 
 builder.Services.AddCors(options =>
@@ -7,7 +7,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp",
         policy =>
         {
-            policy.WithOrigins("https://web-sockets-5x7i.onrender.com")
+            policy.WithOrigins(allowedOrigins)
                   .AllowAnyHeader()
                   .AllowAnyMethod()
                   .AllowCredentials();
