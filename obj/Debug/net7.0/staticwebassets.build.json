@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "W4mWSQl+ge/SdU5Wld1QNSY5OGma23KYd0e/88sE+6A=",
+  "Hash": "9WgLeYa0iYTxLYBxFgP0Eqi5MxF/+BGUIkRV/2KzeF0=",
   "Source": "online-web-games",
   "BasePath": "_content/online-web-games",
   "Mode": "Default",
@@ -17,23 +17,6 @@
   ],
   "Assets": [
     {
-      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-CiVSepEv.js",
-      "SourceId": "online-web-games",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
-      "BasePath": "_content/online-web-games",
-      "RelativePath": "assets/index-CiVSepEv.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\index-CiVSepEv.js"
-    },
-    {
       "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-CWTYgMfP.css",
       "SourceId": "online-web-games",
       "SourceType": "Discovered",
@@ -49,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\index-CWTYgMfP.css"
+    },
+    {
+      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-DMXc9z5x.js",
+      "SourceId": "online-web-games",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "BasePath": "_content/online-web-games",
+      "RelativePath": "assets/index-DMXc9z5x.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\index-DMXc9z5x.js"
     },
     {
       "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\index.html",

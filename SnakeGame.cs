@@ -36,6 +36,7 @@ public class SnakeGame
     private int gameNum;
 
     private Point tailPreviousPoint = null;
+    private Point newDirection;
 
     public SnakeGame(int gridSize, int gameNum, Room room)
     {
@@ -78,16 +79,9 @@ public class SnakeGame
         return this.gameOver;
     }
 
-    public void SetDirection(Point direction)
+    public void SetNewDirection(Point direction)
     {
-        if (direction.Y != 0 && this.currentDirection.Y == 0)
-        {
-            this.currentDirection = new Point(0, direction.Y);
-        }
-        else if (direction.X != 0 && this.currentDirection.X == 0)
-        {
-            this.currentDirection = new Point(direction.X, 0);
-        }
+        this.newDirection = direction;
     }
 
     public bool CheckCollideWithBody(Point headPoint)
@@ -210,8 +204,21 @@ public class SnakeGame
         return false;
     }
 
+    private void AttemptChangeToNewDirection()
+    {
+        if (newDirection == null)
+        {
+            return;
+        }
+        if (newDirection.X != this.lastDirection.X && newDirection.Y != this.lastDirection.Y)
+        {
+            this.currentDirection = newDirection;
+        }
+    }
+
     public void Step()
     {
+        AttemptChangeToNewDirection();
         this.MoveBody(this.currentDirection);
         this.lastDirection = this.currentDirection;
     }

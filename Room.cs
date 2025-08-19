@@ -126,18 +126,18 @@ public class Room
         // Keep listening as long as the client wants to talk
         while (!webSocket.CloseStatus.HasValue)
         {
-            
+
             if (receiveResult?.direction != null)
             {
                 var direction = receiveResult.direction;
-                var curGame = _games[gameNum];
-                Console.WriteLine("Last Direction: "+curGame.lastDirection.X+","+curGame.lastDirection.Y+" - Cur Direction: "+curGame.currentDirection.X+","+curGame.currentDirection.Y);
 
-                // Extra checks to make sure you dont input same direction or 180
+                var curGame = _games[gameNum];
+                Console.WriteLine("Last Direction: " + curGame.lastDirection.X + "," + curGame.lastDirection.Y + " - Cur Direction: " + curGame.currentDirection.X + "," + curGame.currentDirection.Y);
+
+                curGame.SetNewDirection(direction);
                 if (direction.X != curGame.lastDirection.X && direction.Y != curGame.lastDirection.Y)
                 {
-                    curGame.SetDirection(direction);
-                    await webSocket.SendJsonAsync(new { type = "direction", direction = new { x = direction.X, y = direction.Y } });
+                    curGame.currentDirection = direction;
                 }
 
             }
