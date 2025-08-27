@@ -8,10 +8,13 @@ public class Room
     private List<WebSocket> _clients = new();
     private List<SnakeGame> _games = new();
     private Dictionary<WebSocket, bool> _readyStates = new();
+    private int seed;
 
     public Room(string gameId, int gridSize)
     {
         GameId = gameId;
+        var rand = new Random();
+        seed = rand.Next();
     }
 
     private async Task NotifyRoomReady()
@@ -32,7 +35,7 @@ public class Room
         if (_clients.Count >= 2) throw new InvalidOperationException("Room full");
 
         _clients.Add(socket);
-        _games.Add(new SnakeGame(12, _clients.Count - 1, this));
+        _games.Add(new SnakeGame(12, _clients.Count - 1, this, seed));
         _readyStates[socket] = false;
 
 
@@ -118,6 +121,8 @@ public class Room
         Console.WriteLine("Game loop starting...");
         while (_clients.Count == 2) // run as long as 2 clients connected
         {
+            int lossCounter = 0; // Counter to check if two players lose in the same step
+            int losingPlayerIndex = 0; 
             Console.WriteLine("WERE ROLLING");
             for (int i = 0; i < 2; i++)
             {
@@ -131,6 +136,16 @@ public class Room
                     direction = _games[i].currentDirection
                 };
 
+                if (state.gameOver)
+                {
+                    lossCounter++;
+                    losingPlayerIndex = i;
+
+                    
+                }
+
+
+
                 var msg = System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(state);
                 if (_clients[i].State == WebSocketState.Open)
                 {
@@ -142,9 +157,49 @@ public class Room
                 }
             }
 
+            // Send game end message since somebody lost and reset variables
+            if (lossCounter != 0)
+            {
+                seed = new Random().Next();
+                for (int i = 0; i < 2; i++)
+                {
+                    int isWinner = Convert.ToInt32(i != losingPlayerIndex);
+
+                    // If it is a tie, signal it by setting is winner to -1
+                    if (lossCounter == 2)
+                    {
+                        isWinner = -1;
+                    }
+
+                    var endGameObject = new
+                    {
+                        type = "end_game",
+                        isWinner = isWinner,
+                    };
+                    byte[] endGameMessage = System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(endGameObject);
+
+                    if (_clients[i].State == WebSocketState.Open)
+                    {
+                        await _clients[i].SendAsync(
+                            new ArraySegment<byte>(endGameMessage),
+                            WebSocketMessageType.Text,
+                            true,
+                            CancellationToken.None);
+                    }
+
+
+                    // Reset ready up and games
+                    _readyStates[_clients[i]] = false;
+
+                    _games[i] = new SnakeGame(12, i, this, seed);
+
+                    HandleClient(_clients[i], i);
+                }
+                return;
+            }
+
             await Task.Delay(170); // ~6 ticks per second
         }
-
         Console.WriteLine("Game loop ended (not enough clients).");
     }
 

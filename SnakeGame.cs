@@ -31,15 +31,16 @@ public class SnakeGame
     public bool gameOver;
 
     public Point lastDirection;
-    private Random rand = new Random();
+    private Random rand;
     private Room _room;
     private int gameNum;
 
     private Point tailPreviousPoint = null;
     private Point newDirection;
 
-    public SnakeGame(int gridSize, int gameNum, Room room)
+    public SnakeGame(int gridSize, int gameNum, Room room, int seed)
     {
+        rand = new Random(seed);
         this.gameNum = gameNum;
         this._room = room;
         grid = new string[gridSize][];
