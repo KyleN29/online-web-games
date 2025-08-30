@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pEnEUgGjlpD7fgg30RcA/s/qDlPg5V6frS+kHf0q51A=",
+  "Hash": "FdZC8UFW4l3cXAHk6Y/ofneyPItLT6DA0SG/OzROYXs=",
   "Source": "online-web-games",
   "BasePath": "_content/online-web-games",
   "Mode": "Default",
@@ -10,96 +10,528 @@
     {
       "Name": "online-web-games\\wwwroot",
       "Source": "online-web-games",
-      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\",
       "BasePath": "_content/online-web-games",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-CWTYgMfP.css",
+      "Identity": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-CWTYgMfP.css",
       "SourceId": "online-web-games",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\",
       "BasePath": "_content/online-web-games",
-      "RelativePath": "assets/index-CWTYgMfP.css",
+      "RelativePath": "assets/index-CWTYgMfP#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "se1y1jtrh7",
+      "Integrity": "pJgezdJNAGRB2aeghRRfBrb+h1jQ2q3f3NpUKZXYBOg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\index-CWTYgMfP.css"
     },
     {
-      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-zRjwil7J.js",
+      "Identity": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-zRjwil7J.js",
       "SourceId": "online-web-games",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\",
       "BasePath": "_content/online-web-games",
-      "RelativePath": "assets/index-zRjwil7J.js",
+      "RelativePath": "assets/index-zRjwil7J#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "2jfr8kke9g",
+      "Integrity": "Xh8Dntcx7SJ+2UgGaxF3INHCOfx/++l/u6SFAeuQSN8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\index-zRjwil7J.js"
     },
     {
-      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\index.html",
       "SourceId": "online-web-games",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\",
       "BasePath": "_content/online-web-games",
-      "RelativePath": "index.html",
+      "RelativePath": "index#[.{fingerprint}]?.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "14sip7lu5w",
+      "Integrity": "0WOlJBHzFHcXwa4lzbRek7aN0Dmq/pnTxza++R9n8Ss=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\snake.png",
+      "Identity": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\snake.png",
       "SourceId": "online-web-games",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\",
       "BasePath": "_content/online-web-games",
-      "RelativePath": "snake.png",
+      "RelativePath": "snake#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "2d0xsjqb1m",
+      "Integrity": "FqhsbpPoQ5AY2G8K4tHV7NR6U9vBBNsopXIzk8EVsTg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\snake.png"
     },
     {
-      "Identity": "c:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\vite.svg",
+      "Identity": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\vite.svg",
       "SourceId": "online-web-games",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lightningcreep4\\Documents\\GitHub\\online-web-games\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\",
       "BasePath": "_content/online-web-games",
-      "RelativePath": "vite.svg",
+      "RelativePath": "vite#[.{fingerprint}]?.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "69kjnsiwqx",
+      "Integrity": "SnSK/UQ5GLsWWRyDTEAdrjPoeGGrXbrQgRw6O0qSFPs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\vite.svg"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "assets/index-CWTYgMfP.css",
+      "AssetFile": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-CWTYgMfP.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8917"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pJgezdJNAGRB2aeghRRfBrb+h1jQ2q3f3NpUKZXYBOg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 30 Aug 2025 03:47:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pJgezdJNAGRB2aeghRRfBrb+h1jQ2q3f3NpUKZXYBOg="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-CWTYgMfP.se1y1jtrh7.css",
+      "AssetFile": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-CWTYgMfP.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8917"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pJgezdJNAGRB2aeghRRfBrb+h1jQ2q3f3NpUKZXYBOg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 30 Aug 2025 03:47:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "se1y1jtrh7"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/index-CWTYgMfP.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pJgezdJNAGRB2aeghRRfBrb+h1jQ2q3f3NpUKZXYBOg="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-zRjwil7J.2jfr8kke9g.js",
+      "AssetFile": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-zRjwil7J.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "236945"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Xh8Dntcx7SJ+2UgGaxF3INHCOfx/++l/u6SFAeuQSN8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 30 Aug 2025 03:47:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2jfr8kke9g"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/index-zRjwil7J.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Xh8Dntcx7SJ+2UgGaxF3INHCOfx/++l/u6SFAeuQSN8="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-zRjwil7J.js",
+      "AssetFile": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\assets\\index-zRjwil7J.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "236945"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Xh8Dntcx7SJ+2UgGaxF3INHCOfx/++l/u6SFAeuQSN8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 30 Aug 2025 03:47:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Xh8Dntcx7SJ+2UgGaxF3INHCOfx/++l/u6SFAeuQSN8="
+        }
+      ]
+    },
+    {
+      "Route": "index.14sip7lu5w.html",
+      "AssetFile": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "478"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0WOlJBHzFHcXwa4lzbRek7aN0Dmq/pnTxza++R9n8Ss=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 30 Aug 2025 03:47:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "14sip7lu5w"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0WOlJBHzFHcXwa4lzbRek7aN0Dmq/pnTxza++R9n8Ss="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "478"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0WOlJBHzFHcXwa4lzbRek7aN0Dmq/pnTxza++R9n8Ss=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 30 Aug 2025 03:47:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0WOlJBHzFHcXwa4lzbRek7aN0Dmq/pnTxza++R9n8Ss="
+        }
+      ]
+    },
+    {
+      "Route": "snake.2d0xsjqb1m.png",
+      "AssetFile": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\snake.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3452"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FqhsbpPoQ5AY2G8K4tHV7NR6U9vBBNsopXIzk8EVsTg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 30 Aug 2025 03:47:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2d0xsjqb1m"
+        },
+        {
+          "Name": "label",
+          "Value": "snake.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FqhsbpPoQ5AY2G8K4tHV7NR6U9vBBNsopXIzk8EVsTg="
+        }
+      ]
+    },
+    {
+      "Route": "snake.png",
+      "AssetFile": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\snake.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3452"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FqhsbpPoQ5AY2G8K4tHV7NR6U9vBBNsopXIzk8EVsTg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 30 Aug 2025 03:47:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FqhsbpPoQ5AY2G8K4tHV7NR6U9vBBNsopXIzk8EVsTg="
+        }
+      ]
+    },
+    {
+      "Route": "vite.69kjnsiwqx.svg",
+      "AssetFile": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\vite.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1497"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SnSK/UQ5GLsWWRyDTEAdrjPoeGGrXbrQgRw6O0qSFPs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 30 Aug 2025 03:47:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "69kjnsiwqx"
+        },
+        {
+          "Name": "label",
+          "Value": "vite.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SnSK/UQ5GLsWWRyDTEAdrjPoeGGrXbrQgRw6O0qSFPs="
+        }
+      ]
+    },
+    {
+      "Route": "vite.svg",
+      "AssetFile": "C:\\Users\\Guest User\\Documents\\GitHub\\online-web-games\\wwwroot\\vite.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1497"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SnSK/UQ5GLsWWRyDTEAdrjPoeGGrXbrQgRw6O0qSFPs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 30 Aug 2025 03:47:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SnSK/UQ5GLsWWRyDTEAdrjPoeGGrXbrQgRw6O0qSFPs="
+        }
+      ]
     }
   ]
 }

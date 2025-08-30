@@ -1,7 +1,3 @@
-
-using System.Net.WebSockets;
-using System.Reflection.Metadata.Ecma335;
-
 public class SnakeGame
 {
     public class Point

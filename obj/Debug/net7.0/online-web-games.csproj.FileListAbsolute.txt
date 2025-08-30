@@ -25,3 +25,33 @@ c:\Users\lightningcreep4\Documents\GitHub\online-web-games\obj\Debug\net7.0\onli
 C:\Users\lightningcreep4\Documents\GitHub\online-web-games\obj\Debug\net7.0\online-web-games.genruntimeconfig.cache
 C:\Users\lightningcreep4\Documents\GitHub\online-web-games\obj\Debug\net7.0\ref\online-web-games.dll
 c:\Users\lightningcreep4\Documents\GitHub\online-web-games\bin\Debug\net7.0\online-web-games.staticwebassets.runtime.json
+C:\Users\Guest User\Documents\GitHub\online-web-games\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\Guest User\Documents\GitHub\online-web-games\bin\Debug\net7.0\appsettings.json
+C:\Users\Guest User\Documents\GitHub\online-web-games\bin\Debug\net7.0\online-web-games.staticwebassets.runtime.json
+C:\Users\Guest User\Documents\GitHub\online-web-games\bin\Debug\net7.0\online-web-games.staticwebassets.endpoints.json
+C:\Users\Guest User\Documents\GitHub\online-web-games\bin\Debug\net7.0\online-web-games.exe
+C:\Users\Guest User\Documents\GitHub\online-web-games\bin\Debug\net7.0\online-web-games.deps.json
+C:\Users\Guest User\Documents\GitHub\online-web-games\bin\Debug\net7.0\online-web-games.runtimeconfig.json
+C:\Users\Guest User\Documents\GitHub\online-web-games\bin\Debug\net7.0\online-web-games.dll
+C:\Users\Guest User\Documents\GitHub\online-web-games\bin\Debug\net7.0\online-web-games.pdb
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\online-web-games.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\online-web-games.AssemblyInfoInputs.cache
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\online-web-games.AssemblyInfo.cs
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\online-web-games.csproj.CoreCompileInputs.cache
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\online-web-games.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\online-web-games.sourcelink.json
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\scopedcss\bundle\online-web-games.styles.css
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\staticwebassets.build.endpoints.json
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\staticwebassets\msbuild.online-web-games.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\staticwebassets\msbuild.online-web-games.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\staticwebassets\msbuild.build.online-web-games.props
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.online-web-games.props
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.online-web-games.props
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\online-web-games.dll
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\refint\online-web-games.dll
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\online-web-games.pdb
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\online-web-games.genruntimeconfig.cache
+C:\Users\Guest User\Documents\GitHub\online-web-games\obj\Debug\net7.0\ref\online-web-games.dll

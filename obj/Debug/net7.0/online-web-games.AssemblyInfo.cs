@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("online-web-games")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+93e6ba3442263e94175e48e72bf99062c1b8c3df")]
 [assembly: System.Reflection.AssemblyProductAttribute("online-web-games")]
 [assembly: System.Reflection.AssemblyTitleAttribute("online-web-games")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
