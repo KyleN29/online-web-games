@@ -3,7 +3,8 @@ Online Web Games is a full-stack application in development that hosts simple we
 
 # Games
 ## Snake
-<img src="https://github.com/user-attachments/assets/631b14aa-93a5-4b65-8e54-1ca732a8e3ee" alt="snake_gif" width="300" height="300">
+<img src="https://github.com/user-attachments/assets/caab5590-18b7-4d85-b140-64ceb83a6826" alt="snake_gif" width="300" height="300">
+
 
 Currently the only playable game. Snake can be played alone following standard Snake rules. It can also be played against someone else, which features both players playing synced, but separate games of Snake. Each player plays their own game of Snake, but eating fruit causes the opponent's snake to get longer instead of your own. The goal is to survive longer than your opponent. 
 
